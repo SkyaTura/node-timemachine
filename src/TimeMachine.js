@@ -1,6 +1,6 @@
 const crontab = require('node-cron')
 
-const Loader = require('./loader.js')
+const Loader = require('./Loader.js')
 const mysqldump = require('./drivers/mysqldump.js')
 
 class TimeMachine {
