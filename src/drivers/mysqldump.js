@@ -1,5 +1,6 @@
 const mysqldump = require('mysqldump')
 const mkdirp = require('mkdirp')
+const destFormat = require('../DestFormat.js')
 
 module.exports = function (options, env) {
     return new Promise((resolve, reject) => {
@@ -7,7 +8,7 @@ module.exports = function (options, env) {
         mkdirp(path, (err) => {
             err ? reject(err) : resolve(true)
 
-            options.dest = `${path}/backup_mysqldump_${options.database}_${Date.now()}.sql`
+            options.dest = destFormat('mysqldump', path, options.database)
             mysqldump(options, (err) => {
                 err ? reject(err) : resolve(true)
             })
