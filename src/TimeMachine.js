@@ -20,6 +20,9 @@ class TimeMachine {
                     this.loadProject(project)
                 })
             })
+            .catch((err) => {
+                console.log(err)
+            })
     }
     loadProject (project) {
         console.log(`Loading ${project.name}`)
